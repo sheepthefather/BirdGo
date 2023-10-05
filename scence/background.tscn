@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxi8c5ixctt73"]
+
+[ext_resource type="Texture2D" uid="uid://d3cmkeqviijk" path="res://images/bg_day.png" id="1_2d1ae"]
+
+[node name="background" type="Node2D"]
+
+[node name="BgDay3" type="Sprite2D" parent="."]
+position = Vector2(1280, 320)
+scale = Vector2(1.281, 1.281)
+texture = ExtResource("1_2d1ae")
+
+[node name="BgDay4" type="Sprite2D" parent="."]
+position = Vector2(912, 320)
+scale = Vector2(1.281, 1.281)
+texture = ExtResource("1_2d1ae")
+
+[node name="BgDay2" type="Sprite2D" parent="."]
+position = Vector2(543.5, 320)
+scale = Vector2(1.28125, 1.28125)
+texture = ExtResource("1_2d1ae")
+
+[node name="BgDay" type="Sprite2D" parent="."]
+position = Vector2(176, 320)
+scale = Vector2(1.281, 1.281)
+texture = ExtResource("1_2d1ae")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvp8tbjbcotvx"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_5hlgl"]
+[ext_resource type="PackedScene" uid="uid://bxi8c5ixctt73" path="res://scence/background.tscn" id="1_liqnq"]
+[ext_resource type="PackedScene" uid="uid://dmsg6oupeyc8d" path="res://scence/player.tscn" id="3_mhwbx"]
+[ext_resource type="Script" path="res://scence/player.gd" id="4_q1im6"]
+[ext_resource type="Texture2D" uid="uid://dc45o88ocfi47" path="res://images/text_game_over.png" id="5_kgfq0"]
+[ext_resource type="Script" path="res://GameState.gd" id="5_tcr0k"]
+[ext_resource type="FontFile" uid="uid://2ejfhr2v7w3f" path="res://fonts/PixelifySans-Bold.ttf" id="7_o6u8c"]
+
+[node name="MainGamePlaygound" type="Node2D"]
+script = ExtResource("1_5hlgl")
+
+[node name="Background" parent="." instance=ExtResource("1_liqnq")]
+position = Vector2(8, 8)
+
+[node name="Player" parent="." instance=ExtResource("3_mhwbx")]
+script = ExtResource("4_q1im6")
+
+[node name="GUI" type="Node" parent="."]
+
+[node name="GameState" type="CenterContainer" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("5_tcr0k")
+
+[node name="Message" type="TextureRect" parent="GUI/GameState"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("5_kgfq0")
+
+[node name="Score" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Score"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_right = 36.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_o6u8c")
+theme_override_font_sizes/font_size = 30
+text = "SCORE:0"
+
+[connection signal="area_entered" from="Player" to="." method="_on_get_score"]
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmsg6oupeyc8d"]
+
+[ext_resource type="Texture2D" uid="uid://c7xtm41swdeco" path="res://images/bird0_0.png" id="1_m85lh"]
+[ext_resource type="Texture2D" uid="uid://bvc5vfel0dpoh" path="res://images/bird0_1.png" id="2_wgyx4"]
+[ext_resource type="Texture2D" uid="uid://ce8tjt1f4dacq" path="res://images/bird0_2.png" id="3_6ot8k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2gyn3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m85lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wgyx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6ot8k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smh1k"]
+radius = 10.9859
+height = 36.0495
+
+[node name="Player" type="Area2D"]
+position = Vector2(240, 288)
+gravity_point_unit_distance = 1.696
+
+[node name="BirdPlayer" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2gyn3")
+autoplay = "default"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = -1.55764
+shape = SubResource("CapsuleShape2D_smh1k")
